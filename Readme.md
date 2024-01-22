@@ -32,7 +32,7 @@ Welcome to the Weather Forecast Application, a robust and interactive tool desig
 #### Configuration
 
 - Ensure you have the following API keys:
-  - Currency API: `bupJPF7ejSyIRulWAzEyj4niDvksQ9W5AvzLHCLD` [CurrencyAPI](https://app.currencyapi.com/dashboard)
+  - Currency API: `cur_live_ZBbhBB2Z8iayiYpu9IPGxFQqLz5tApxa6VROY1bS` [CurrencyAPI](https://app.currencyapi.com/dashboard)
   - Weather API: `30cf23e4108bbec1a6fc67d3b05b31c6` [OpenWeatherMap](https://openweathermap.org/)
   - Google Maps API: `AIzaSyAycQCTMjhQO9jqkQYomT6pcqEp-bMnrI0` [Google Maps](https://www.google.com/maps)
 
