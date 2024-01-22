@@ -43,16 +43,16 @@ Welcome to the Weather Forecast Application, a robust and interactive tool desig
 
 #### Starting the Application
 
-- In the project root directory, execute `node app.js` in your terminal to start the server.
+- In the project root directory, execute `npm start` in your terminal to start the server.
 - Access the application through [http://localhost:3000](http://localhost:3000) in your web browser.
 
 ## Usage
 
 - **Input Requirements**: You must fill all three input fields in the application interface to receive weather forecasts.
-- **API Integration**: The application seamlessly integrates the three mentioned APIs to fetch and display weather data.
+- **API Integration**: The application seamlessly integrates the three mentioned APIs to fetch and display weather data and currency.
 
 ## Design Decisions
 
 - **Separation of Concerns**: The core logic of the application is encapsulated within the `app.js` file. HTML files are used solely for presentation, ensuring a clear separation between logic and presentation layers.
-- **API Utilization**: The choice of APIs provides a comprehensive set of data, enhancing the accuracy and reliability of weather forecasts.
+- **API Utilization**: The choice of APIs provides a comprehensive set of data, enhancing the accuracy and reliability of weather forecasts and currency.
 - **Server Configuration**: Running on a local server (Port 3000) allows for easy setup and testing, making it convenient for users to deploy and use the application locally.
