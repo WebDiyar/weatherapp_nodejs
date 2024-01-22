@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"integrity="sha384-JcqiIsfFjUiPpp2OlwpwVjwpfu1JWgC1lN26OLJwMILfkJo4koalMFFJw7qA7u8w" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather App</h1>
+      <p class="text-info">You must select the city name, currency(RUB, EUR or KZT) and any date before today to find out the exchange rate on that day</p>
+      <form action="/weather" method="get">
+        <input type="text" name="city" placeholder="Enter city name" />
+        <input type="text" name="money" placeholder="Enter money name" />
+        <input
+          type="date"
+          name="moneyHistory"
+          placeholder="Enter money historical"
+        />
+        <button type="submit" class="btn">Get Weather</button>
+      </form>
+      <% if (error) { %>
+      <p class="error"><%= error %></p>
+      <% } else if (weather) { %>
+        
+      <div class="content">
+        <div class="card">
+          <p>
+            <i class="fas fa-thermometer-half"></i>
+            <%= weather.list[0].main.temp %>&deg;F
+          </p>
+          <p>
+            <i class="fas fa-cloud"></i>
+            <%= weather.list[0].weather[0].description %>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <%= weather.city.name %>
+            <%= weather.list[0].weather[0].icon %>, 
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            lon: <%= weather.city.coord.lon %> lan: <%= weather.city.coord.lat %>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            feels like: <%= weather.list[0].main.feels_like %> 
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+             humidity: <%= weather.list[0].main.humidity %> 
+          </p>
+          <p>
+            <i class="fas fa-cloud"></i>
+            pressure: <%= weather.list[0].main.pressure %>
+           
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+           
+            country code: <%= weather.cod %>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+           
+            wind speed: <%= weather.list[0].wind.speed %> 
+          </p>
+          <p>
+            <i class="fas fa-cloud"></i> Rain
+            Volume: <%= weather.rain ? weather.rain['1h'] : 'undefined' %>
+          </p>
+
+        </div>
+
+        
+    <div class="content">
+      <div class="card">
+        <% if (base) { %>
+        <div class="card">
+          <p>EUR: <%= base.data.EUR.value %></p>
+          <p>KZT: <%= base.data.KZT.value %></p>
+          <p>RUB: <%= base.data.RUB.value %></p>
+        </div>
+        <% } %>
+      </div>
+    
+      <div class="card">
+              <% if (historical && historical.meta) { %>
+              <p>data: <%= historical.meta.last_updated_at %></p>
+              <% if (historical.data && historical.data.EUR) { %>
+              <p>EUR: <%= historical.data.EUR.value %></p>
+              <% } %> <% if (historical.data && historical.data.KZT) { %>
+              <p>KZT: <%= historical.data.KZT.value %></p>
+              <% } %> <% if (historical.data && historical.data.RUB) { %>
+              <p>RUB: <%= historical.data.RUB.value %></p>
+              <% } %> <% } else { %>
+              <p>No historical data available</p>
+              <% } %>
+      </div>
+    </div>
+    </div>
+          <% } %>
+          
+
+    <div class="content">
+      <form action="/map" method="get">
+        <input type="text" name="lng" placeholder="Enter lon" />
+        <input type="text" name="lat" placeholder="Enter lan" />
+        <button type="submit">Get map</button>
+        </form>
+        </div>
+    <div class="content">
+        <form action="/getWeather" method="get">
+          <p class="select_city">Select a city to see the 14-day weather forecast.</p>
+          <input type="text" name="city" placeholder="Enter city" />
+          <input type="text" name="day" placeholder="Enter days" value="14"/>
+          <button type="submit">Get Weather</button>
+        </form>
+    </div>
+
+
+    <div class="footer text-center">
+        &copy; 2024 Diyar Amangeldi, SE-2202
+    </div>
+    </body>
+</html>

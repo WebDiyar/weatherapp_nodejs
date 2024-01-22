@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <title>Weather</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcqiIsfFjUiPpp2OlwpwVjwpfu1JWgC1lN26OLJwMILfkJo4koalMFFJw7qA7u8w" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container my-3 mx-auto">
+    <h3 class="text-center mb-4">Weather Forecast for <%= city %> - <%= day %>
+    </h3>
+    <div class="row justify-content-center">
+      <% if (weatherData && weatherData.forecast && weatherData.forecast.forecastday) { %>
+        <% weatherData.forecast.forecastday.forEach((dayForecast)=> { %>
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <h4 class="card-header text-center">
+                <%= dayForecast.date %>
+              </h4>
+              <div class="card-body">
+                <p class="card-text">Max Temperature: <%= dayForecast.day.maxtemp_c %>°C</p>
+                <p class="card-text">Min Temperature: <%= dayForecast.day.mintemp_c %>°C</p>
+                <p class="card-text">Wind Direction: <%= dayForecast.hour[0].wind_dir %></p>
+                <p class="card-text">Sunrise: <%= dayForecast.astro.sunrise %>
+                </p>
+                <p class="card-text">Sunset: <%= dayForecast.astro.sunset %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+            <% } else { %>
+              <p class="text-center">No weather data available.</p>
+              <% } %>
+    </div>
+  </div>
+
+  <div class="footer">
+        &copy; 2024 Diyar Amangeldi, SE-2202
+  </div>
+</body>
+
+</html>
